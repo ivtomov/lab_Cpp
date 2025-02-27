@@ -14,20 +14,19 @@ public:
     Item(std::string title, double price, int mediaNumber, std::string mediaFormat, std::string purchaseDate)
         : title(title), price(price), mediaNumber(mediaNumber), mediaFormat(mediaFormat), purchaseDate(purchaseDate) {}
 
-    // Член-функции за достъп до характеристиките на класа
     std::string getTitle() const { return title; }
     double getPrice() const { return price; }
     int getMediaNumber() const { return mediaNumber; }
     std::string getMediaFormat() const { return mediaFormat; }
     std::string getPurchaseDate() const { return purchaseDate; }
 
-    // Член-функция за извеждане на съобщение
+    
     void displayInfo() const {
         std::cout << "<<" << getMediaType() << ">> с заглавие " << getTitle() << " е била закупена на цена " << getPrice()
                   << " на дата " << getPurchaseDate() << "." << std::endl;
     }
 
-    // Виртуална член-функция за връщане на видa на медията
+    
     virtual std::string getMediaType() const = 0;
 };
 
@@ -39,12 +38,12 @@ public:
     Movie(std::string title, double price, int mediaNumber, std::string mediaFormat, std::string purchaseDate, int rating)
         : Item(title, price, mediaNumber, mediaFormat, purchaseDate), rating(rating) {}
 
-    // Переопределяне на виртуалната функция
+    
     std::string getMediaType() const override {
         return "Филм";
     }
 
-    // Член-функция за връщане на рейтинга
+    
     int getRating() const { return rating; }
 };
 
@@ -56,12 +55,12 @@ public:
     Game(std::string title, double price, int mediaNumber, std::string mediaFormat, std::string purchaseDate, int difficultyLevel)
         : Item(title, price, mediaNumber, mediaFormat, purchaseDate), difficultyLevel(difficultyLevel) {}
 
-    // Переопределяне на виртуалната функция
+    
     std::string getMediaType() const override {
         return "Игра";
     }
 
-    // Член-функция за връщане на нивото на трудност
+   
     int getDifficultyLevel() const { return difficultyLevel; }
 };
 
@@ -73,12 +72,12 @@ public:
     Music(std::string title, double price, int mediaNumber, std::string mediaFormat, std::string purchaseDate, std::string artist)
         : Item(title, price, mediaNumber, mediaFormat, purchaseDate), artist(artist) {}
 
-    // Переопределяне на виртуалната функция
+    
     std::string getMediaType() const override {
         return "Музика";
     }
 
-    // Член-функция за връщане на изпълнителя
+    
     std::string getArtist() const { return artist; }
 };
 
